@@ -34,6 +34,7 @@ class FetchViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     update()
+    UIApplication.sharedApplication().setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
   }
   
   @IBAction func didTapUpdate(sender: UIButton) {
