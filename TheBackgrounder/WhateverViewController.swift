@@ -9,9 +9,88 @@
 import UIKit
 
 class WhateverViewController: UIViewController {
+  
+  @IBOutlet weak var resultsLabel: UILabel!
+  var previous = NSDecimalNumber.one()
+  var current = NSDecimalNumber.one()
+  var position: UInt = 1
+  var updateTimer: NSTimer?
+  var backgroundTask: UIBackgroundTaskIdentifier = UIBackgroundTaskInvalid
+  
+  deinit {
+    NSNotificationCenter.defaultCenter().removeObserver(self)
+  }
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("reinstateBackgroundTask"), name: UIApplicationDidBecomeActiveNotification, object: nil)
+  }
+  
+  func resetCalculation() {
+    previous = NSDecimalNumber.one()
+    current = NSDecimalNumber.one()
+    position = 1
+  }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+  func registerBackgroundTask() {
+    backgroundTask = UIApplication.sharedApplication().beginBackgroundTaskWithExpirationHandler {
+      self.endBackgroundTask()
     }
-
+    assert(backgroundTask != UIBackgroundTaskInvalid)
+  }
+  
+  func endBackgroundTask() {
+    NSLog("Background task ended.")
+    UIApplication.sharedApplication().endBackgroundTask(self.backgroundTask)
+    self.backgroundTask = UIBackgroundTaskInvalid
+  }
+  
+  @IBAction func didTapPlayPause(sender: UIButton) {
+    sender.selected = !sender.selected
+    if sender.selected {
+      resetCalculation()
+      updateTimer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self,
+        selector: "calculateNextNumber", userInfo: nil, repeats: true)
+      registerBackgroundTask()
+    } else {
+      updateTimer?.invalidate()
+      updateTimer = nil
+      if backgroundTask != UIBackgroundTaskInvalid {
+        endBackgroundTask()
+      }
+    }
+  }
+  
+  func reinstateBackgroundTask() {
+    if updateTimer != nil && (backgroundTask == UIBackgroundTaskInvalid) {
+      registerBackgroundTask()
+    }
+  }
+  
+  func calculateNextNumber() {
+    let result = current.decimalNumberByAdding(previous)
+    
+    let bigNumber = NSDecimalNumber(mantissa: 1, exponent: 40, isNegative: false)
+    if result.compare(bigNumber) == .OrderedAscending {
+      previous = current
+      current = result
+      ++position
+    }
+    else {
+      // This is just too much.... Let's start over.
+      resetCalculation()
+    }
+  
+    let resultsMessage = "Position \(position) = \(current)"
+    
+    switch UIApplication.sharedApplication().applicationState {
+      case .Active:
+        resultsLabel.text = resultsMessage
+      case .Background:
+        NSLog("App is backgrounded. Next number = %@", resultsMessage)
+        NSLog("Background time remaining = %.1f seconds", UIApplication.sharedApplication().backgroundTimeRemaining)
+      case .Inactive:
+        break
+    }
+  }
 }
