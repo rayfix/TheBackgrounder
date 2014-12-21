@@ -16,20 +16,9 @@
 		5DAC2CD21A3801D10081725C /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAC2CD11A3801D10081725C /* LocationViewController.swift */; };
 		5DAC2CD71A3801D20081725C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DAC2CD61A3801D20081725C /* Images.xcassets */; };
 		5DAC2CDA1A3801D20081725C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DAC2CD81A3801D20081725C /* LaunchScreen.xib */; };
-		5DAC2CE61A3801D20081725C /* TheBackgrounderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAC2CE51A3801D20081725C /* TheBackgrounderTests.swift */; };
 		5DAC2CF01A3802590081725C /* WhateverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAC2CEF1A3802590081725C /* WhateverViewController.swift */; };
 		5DAC2CF21A3802AA0081725C /* FetchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAC2CF11A3802AA0081725C /* FetchViewController.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		5DAC2CE01A3801D20081725C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5DAC2CC01A3801D10081725C /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 5DAC2CC71A3801D10081725C;
-			remoteInfo = TheBackgrounder;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		5D4717111A39320600D193CD /* FeelinGood.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = FeelinGood.mp3; path = Songs/FeelinGood.mp3; sourceTree = "<group>"; };
@@ -43,22 +32,12 @@
 		5DAC2CD41A3801D10081725C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5DAC2CD61A3801D20081725C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5DAC2CD91A3801D20081725C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		5DAC2CDF1A3801D20081725C /* TheBackgrounderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TheBackgrounderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5DAC2CE41A3801D20081725C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5DAC2CE51A3801D20081725C /* TheBackgrounderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheBackgrounderTests.swift; sourceTree = "<group>"; };
 		5DAC2CEF1A3802590081725C /* WhateverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WhateverViewController.swift; sourceTree = "<group>"; };
 		5DAC2CF11A3802AA0081725C /* FetchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		5DAC2CC51A3801D10081725C /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5DAC2CDC1A3801D20081725C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -72,7 +51,6 @@
 			isa = PBXGroup;
 			children = (
 				5DAC2CCA1A3801D10081725C /* TheBackgrounder */,
-				5DAC2CE21A3801D20081725C /* TheBackgrounderTests */,
 				5DAC2CC91A3801D10081725C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -81,7 +59,6 @@
 			isa = PBXGroup;
 			children = (
 				5DAC2CC81A3801D10081725C /* TheBackgrounder.app */,
-				5DAC2CDF1A3801D20081725C /* TheBackgrounderTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -113,23 +90,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		5DAC2CE21A3801D20081725C /* TheBackgrounderTests */ = {
-			isa = PBXGroup;
-			children = (
-				5DAC2CE51A3801D20081725C /* TheBackgrounderTests.swift */,
-				5DAC2CE31A3801D20081725C /* Supporting Files */,
-			);
-			path = TheBackgrounderTests;
-			sourceTree = "<group>";
-		};
-		5DAC2CE31A3801D20081725C /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				5DAC2CE41A3801D20081725C /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -150,24 +110,6 @@
 			productReference = 5DAC2CC81A3801D10081725C /* TheBackgrounder.app */;
 			productType = "com.apple.product-type.application";
 		};
-		5DAC2CDE1A3801D20081725C /* TheBackgrounderTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 5DAC2CEC1A3801D20081725C /* Build configuration list for PBXNativeTarget "TheBackgrounderTests" */;
-			buildPhases = (
-				5DAC2CDB1A3801D20081725C /* Sources */,
-				5DAC2CDC1A3801D20081725C /* Frameworks */,
-				5DAC2CDD1A3801D20081725C /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				5DAC2CE11A3801D20081725C /* PBXTargetDependency */,
-			);
-			name = TheBackgrounderTests;
-			productName = TheBackgrounderTests;
-			productReference = 5DAC2CDF1A3801D20081725C /* TheBackgrounderTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -185,10 +127,6 @@
 							};
 						};
 					};
-					5DAC2CDE1A3801D20081725C = {
-						CreatedOnToolsVersion = 6.1.1;
-						TestTargetID = 5DAC2CC71A3801D10081725C;
-					};
 				};
 			};
 			buildConfigurationList = 5DAC2CC31A3801D10081725C /* Build configuration list for PBXProject "TheBackgrounder" */;
@@ -205,7 +143,6 @@
 			projectRoot = "";
 			targets = (
 				5DAC2CC71A3801D10081725C /* TheBackgrounder */,
-				5DAC2CDE1A3801D20081725C /* TheBackgrounderTests */,
 			);
 		};
 /* End PBXProject section */
@@ -224,13 +161,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5DAC2CDD1A3801D20081725C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -246,23 +176,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5DAC2CDB1A3801D20081725C /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5DAC2CE61A3801D20081725C /* TheBackgrounderTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		5DAC2CE11A3801D20081725C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 5DAC2CC71A3801D10081725C /* TheBackgrounder */;
-			targetProxy = 5DAC2CE01A3801D20081725C /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		5DAC2CD31A3801D10081725C /* Main.storyboard */ = {
@@ -383,40 +297,6 @@
 			};
 			name = Release;
 		};
-		5DAC2CED1A3801D20081725C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = TheBackgrounderTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TheBackgrounder.app/TheBackgrounder";
-			};
-			name = Debug;
-		};
-		5DAC2CEE1A3801D20081725C /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = TheBackgrounderTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TheBackgrounder.app/TheBackgrounder";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -434,15 +314,6 @@
 			buildConfigurations = (
 				5DAC2CEA1A3801D20081725C /* Debug */,
 				5DAC2CEB1A3801D20081725C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		5DAC2CEC1A3801D20081725C /* Build configuration list for PBXNativeTarget "TheBackgrounderTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				5DAC2CED1A3801D20081725C /* Debug */,
-				5DAC2CEE1A3801D20081725C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
