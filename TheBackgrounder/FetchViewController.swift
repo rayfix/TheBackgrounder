@@ -9,8 +9,35 @@
 import UIKit
 
 class FetchViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
+  
+  @IBOutlet weak var updateLabel: UILabel?
+  
+  var updateTime: NSDate?
+  
+  func fetchNewTime(completion:(Void -> Void)) {
+    updateTime = NSDate()
+    completion()
+  }
+  
+  func update() {
+    if let time = updateTime {
+      let formatter = NSDateFormatter()
+      formatter.dateStyle = .ShortStyle
+      formatter.timeStyle = .LongStyle
+      updateLabel?.text = formatter.stringFromDate(time)
     }
+    else {
+      updateLabel?.text = "Not yet updated"
+    }
+  }
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    update()
+  }
+  
+  @IBAction func didTapUpdate(sender: UIButton) {
+    fetchNewTime { self.update() }
+  }
+  
 }
