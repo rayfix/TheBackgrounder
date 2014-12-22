@@ -34,6 +34,7 @@ class WhateverViewController: UIViewController {
 
   func registerBackgroundTask() {
     backgroundTask = UIApplication.sharedApplication().beginBackgroundTaskWithExpirationHandler {
+      [unowned self] in
       self.endBackgroundTask()
     }
     assert(backgroundTask != UIBackgroundTaskInvalid)
@@ -41,8 +42,8 @@ class WhateverViewController: UIViewController {
   
   func endBackgroundTask() {
     NSLog("Background task ended.")
-    UIApplication.sharedApplication().endBackgroundTask(self.backgroundTask)
-    self.backgroundTask = UIBackgroundTaskInvalid
+    UIApplication.sharedApplication().endBackgroundTask(backgroundTask)
+    backgroundTask = UIBackgroundTaskInvalid
   }
   
   @IBAction func didTapPlayPause(sender: UIButton) {

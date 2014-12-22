@@ -12,6 +12,11 @@ import MapKit
 
 class LocationViewController: UIViewController, CLLocationManagerDelegate {
   
+
+  @IBOutlet weak var mapView: MKMapView!
+  
+  var locations = [MKPointAnnotation]()
+  
   lazy var locationManager: CLLocationManager! = {
     let manager = CLLocationManager()
     manager.desiredAccuracy = kCLLocationAccuracyBest
@@ -19,13 +24,6 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate {
     manager.requestAlwaysAuthorization()
     return manager
   }()
-  @IBOutlet weak var mapView: MKMapView!
-  
-  var locations = [MKPointAnnotation]()
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
-  }
   
   @IBAction func enabledChanged(sender: UISwitch) {
     if sender.on {
@@ -47,6 +45,8 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate {
     locationManager.desiredAccuracy = accuracyValues[sender.selectedSegmentIndex];
   }
   
+  // MARK: - CLLocationManagerDelegate
+  
   func locationManager(manager: CLLocationManager!, didUpdateToLocation newLocation: CLLocation!, fromLocation oldLocation: CLLocation!) {
     // Add another annotation to the map.
     let annotation = MKPointAnnotation()
@@ -59,7 +59,7 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate {
     // Remove values if the array is too big
     while locations.count > 100 {
       let annotationToRemove = locations.first!
-      self.locations.removeAtIndex(0)
+      locations.removeAtIndex(0)
       
       // Also remove from the map
       mapView.removeAnnotation(annotationToRemove)
@@ -101,7 +101,7 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate {
       mapView.setRegion(region, animated: true)
     }
     else {
-      NSLog("App is backgrounded. New location is %@", newLocation);
+      NSLog("App is backgrounded. New location is %@", newLocation)
     }
   }
   
