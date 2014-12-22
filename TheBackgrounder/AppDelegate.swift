@@ -15,7 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
   
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-    // Override point for customization after application launch.
+    UIApplication.sharedApplication().setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
+
     return true
   }
   
@@ -41,13 +42,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
   }
   
+  // Support for background fetch
   func application(application: UIApplication, performFetchWithCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
     
     if let tabBarController = window?.rootViewController? as? UITabBarController {
       for viewController in tabBarController.viewControllers as [UIViewController] {
         if let fetchViewController = viewController as? FetchViewController {
-          fetchViewController.fetchNewTime {
-            fetchViewController.update()
+          fetchViewController.fetch {
+            fetchViewController.updateUI()
             completionHandler(.NewData)
           }
         }

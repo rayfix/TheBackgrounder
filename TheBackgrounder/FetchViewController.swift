@@ -12,15 +12,15 @@ class FetchViewController: UIViewController {
   
   @IBOutlet weak var updateLabel: UILabel?
   
-  var updateTime: NSDate?
+  var time: NSDate?
   
-  func fetchNewTime(completion:(Void -> Void)) {
-    updateTime = NSDate()
+  func fetch(completion: () -> Void) {
+    time = NSDate()
     completion()
   }
   
-  func update() {
-    if let time = updateTime {
+  func updateUI() {
+    if let time = time {
       let formatter = NSDateFormatter()
       formatter.dateStyle = .ShortStyle
       formatter.timeStyle = .LongStyle
@@ -33,12 +33,11 @@ class FetchViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    update()
-    UIApplication.sharedApplication().setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
+    updateUI()
   }
   
   @IBAction func didTapUpdate(sender: UIButton) {
-    fetchNewTime { self.update() }
+    fetch { self.updateUI() }
   }
   
 }
